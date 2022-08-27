@@ -1,0 +1,85 @@
+{
+	"name": "laravel-advanced-goto",
+	"displayName": "Laravel Advanced GoTo",
+	"description": "Quick jump to all view, layout, public files, and etc.",
+	"version": "1.0.0",
+	"publisher": "fahlisaputra",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.50.0"
+	},
+	"icon": "images/icon.jpg",
+	"repository": "https://github.com/fahlisaputra/laravel-goto.git",
+	"homepage": "https://fahli.net",
+	"bugs": {
+		"url": "ttps://github.com/fahlisaputra/laravel-goto/issues",
+		"email": "developers@fahli.net"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"PHP",
+		"Laravel"
+	],
+	"activationEvents": [
+		"onLanguage:php",
+		"onLanguage:blade"
+	],
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Laravel Advanced GoTo Configurations",
+			"properties": {
+				"laravel_advanced_goto.quickJump": {
+					"type": "boolean",
+					"default": true,
+					"description": "Use 'Ctrl' or 'Alt' + click"
+				},
+				"laravel_advanced_goto.folderTip": {
+					"type": "boolean",
+					"default": true,
+					"description": "Display path name"
+				},
+				"laravel_advanced_goto.maxLinesCount": {
+					"type": "integer",
+					"default": 666,
+					"description": "Maximum number of scanning rows"
+				},
+				"laravel_advanced_goto.regex": {
+					"type": "string",
+					"default": "(?<=view\\(['\"]|View::make\\(['\"]|@include\\(['\"]|@extends\\(['\"]|@component\\(['\"]|Inertia::render\\(['\"]|\\<)(\\<x-|\\<livewire:|[^'\" \\/>]+)",
+					"description": "Custom regex for matching strings"
+				},
+				"laravel_advanced_goto.folders": {
+					"type": "object",
+					"default": {
+						"default": "/resources/views",
+						"js": "/resources/js/Pages",
+						"vendor": "/resources/views/vendor"
+					},
+					"items": {
+						"type": "string"
+					},
+					"minItems": 1,
+					"uniqueItems": true,
+					"description": "Multiple folders"
+				},
+				"laravel_advanced_goto.extensions": {
+					"type": "array",
+					"default": [
+						".blade.php",
+						".vue"
+					],
+					"items": {
+						"type": "string"
+					},
+					"minItems": 1,
+					"uniqueItems": true,
+					"description": "Multiple extensions"
+				}
+			}
+		}
+	},
+	"main": "./out/extension.js"
+}
